@@ -1,0 +1,28 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= simple_form_for @project, remote: true, html: { style: "display:inline;" } do |f| %>
+      <div class="modal-body">
+        <ul class="errors"></ul>
+        <h4>Project Information </h4><hr>
+
+        <%= f.input :name %>
+       <div class="form-group">
+          <%= f.label :client %>
+          <%= f.collection_select :client_id, Client.all, :id, :last_name %>
+       </div>
+       <%= f.input :number %>
+       <%= f.input :description %>
+       <%= f.input :status %>
+       <%= f.input :square_footage %>
+       <%= f.input :address1 %>
+       <%= f.input :address2 %>
+       <%= f.input :city %>
+       <%= f.input :zip %>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit class: "btn btn-primary" %>
+        <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+      </div>
+    <% end %>
+  </div>
+</div>

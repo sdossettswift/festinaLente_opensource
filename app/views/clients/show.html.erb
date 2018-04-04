@@ -1,0 +1,77 @@
+<h1><%= @client.name%> | <%= @client.first_name %> <%= @client.last_name%></h1>
+<hr>
+
+
+<div class="row">
+  <% @client.projects.each do |p| %>
+  <div class="col col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading"> <h3 class="panel-title"><%= p.name%></h3> </div>
+      <div class="panel-body">
+        <h5>Project No. <%= p.number %></h5>
+        <%if p.address1%><h5><%= p.address1 %></h5><%end%>
+        <%if p.address2%><h5><%= p.address2 %></h5><%end%>
+        <%if p.city%><h5><%= p.city %></h5><%end%>
+        <%if p.zip%><h5><%= p.zip %></h5><%end%>
+        <%if p.description%><h5><%= p.description %></h5><%end%>
+        <%if p.square_footage%><h5>Square Footage: <%= p.square_footage %></h5><%end%>
+        <%if p.status%><h5>Status: <%= p.status %></h5><%end%>
+        <%= link_to "Add or Update Project Details", edit_project_path(p), remote:true, class:'btn btn-outline btn-info' %>
+        <div id='project-modal' class="modal modal-fade"></div>
+
+        </div>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="col col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading"> <h3 class="panel-title">Billing Details</h3></div>
+      <div class="panel-body">
+          <%= @client.billing_contact%>
+          <h5><%= @client.billing_company %></h5>
+          <h5><%= @client.billing_address1 %></h5>
+          <h5><%= @client.billing_address2 %></h5>
+          <h5><%= @client.billing_city %>, <%= @client.billing_state %> <%= @client.billing_zip %></h5>
+          <%= link_to "Add or Update Billing Details", edit_client_path(@client), remote:true, class:'btn btn-outline btn-info' %>
+
+      </div>
+      </div>
+    </div>
+    <%if @client.expenses.count >= 1%>
+    <div class="col col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading"> <h3 class="panel-title">Expenses</h3></div>
+        <div class="panel-body">
+
+          <table  class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Project</th>
+                <th>Vendor </th>
+                <th>Description </th>
+                <th>Cost</th>
+              </tr>
+            </thead>
+            <tbody class="project-index">
+              <% @client.expenses.each do |expense|%>
+                <tr>
+                  <td> <%= expense.project.number %></td>
+                  <td> <%= expense.project.name %></td>
+                  <td> <%= expense.vendor %></td>
+                  <td> <%= expense.description %></td>
+                  <td> $<%= expense.amount %></td>
+                </tr>
+              <%end%>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+    </div>
+    <%end%>
+  </div>
+
+
+<div id='client-modal' class="modal modal-fade"></div>

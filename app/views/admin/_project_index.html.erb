@@ -1,0 +1,6 @@
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= project.number%> | <%= project.name %></td>
+    <td><%= link_to "Edit", edit_project_path(project), remote: true, class: "btn btn-default" %></td>
+  </tr>
+<% end %>

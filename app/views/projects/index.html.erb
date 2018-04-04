@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="well">
+    <%= link_to "New Project", new_project_path, remote: true, class: "btn btn-primary" %>
+  </div>
+  <div class="new-project"></div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Project</th>
+        <th>Client</th>
+        <th>Number</th>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
+    </thead>
+    <tbody class="project-index">
+      <%= render "index" %>
+    </tbody>
+  </table>
+</div>
+<div id="project-modal" class="modal fade"></div>

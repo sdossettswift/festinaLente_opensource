@@ -1,0 +1,6 @@
+<% @clients.each do |client| %>
+  <tr>
+    <td><%= client.name %></td>
+    <td><%= link_to "Edit", edit_admin_client_path(client), remote: true, class: "btn btn-default" %></td>
+  </tr>
+<% end %>

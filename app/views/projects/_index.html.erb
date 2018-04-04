@@ -1,0 +1,9 @@
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= project.name %></td>
+    <td><%= project.client.last_name %></td>
+    <td><%= project.number%></td>
+    <td><%= link_to "Edit", edit_project_path(project), remote: true, class: "btn btn-default" %></td>
+    <td><%= link_to "Delete", project_delete_path(project), remote: true, class: "btn btn-danger" %></td>
+  </tr>
+<% end %>

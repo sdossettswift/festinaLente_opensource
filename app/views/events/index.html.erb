@@ -1,0 +1,51 @@
+
+<table  class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Project</th>
+      <th>No.</th>
+      <th>Client</th>
+      <th>Date </th>
+      <th>Description </th>
+      <th>Duration</th>
+      <th>Phase</th>
+    </tr>
+  </thead>
+  <tbody class="project-index">
+    <% @unsubmitted_events.each do |event|%>
+      <tr>
+        <%if event.submitted %>
+          <td> Submitted</td>
+          <% else %>
+          <td><%= link_to "Add to Time Sheet", submit_event_path(event)%></td>
+          <% end %>
+        <td> <%= event.project.name %></td>
+        <td> <%= event.project.number %></td>
+        <td> <%= event.project.client.name %></td>
+        <td> <%= event.start.strftime('%m/%d/%Y')%></td>
+        <td> <%= event.title %></td>
+        <td> <%= event.duration_hours %> hours</td>
+        <td> <%= event.phase%></td>
+      </tr>
+    <%end%>
+    <% @submitted_events.each do |event|%>
+      <tr>
+          <td> Added</td>
+        <td> <%= event.project.name %></td>
+        <td> <%= event.project.number %></td>
+        <td> <%= event.project.client.name %></td>
+        <td> <%= event.start.strftime('%m/%d/%Y')%></td>
+        <td> <%= event.title %></td>
+        <td> <%= event.duration_hours %> hours</td>
+        <td> <%= event.phase%></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+Total: <%= @unsubmitted_hours%> Hours Not Yet Added to Timesheet</br>
+<h4>Total: <%= @submitted_hours%> Timesheet Hours</h4></br>
+<hr>
+<%= link_to "Submit Timesheet", timesheet_path(format: "pdf"), class:"btn-primary btn" %>
+
+<%= link_to "Download PDF", timesheet_path(format: "pdf"), class:"btn-primary btn" %>

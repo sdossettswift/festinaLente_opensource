@@ -1,0 +1,34 @@
+<body>
+  <h1> Hill Swift Architect, PLLC </h1>
+  <hr>
+  <h3> Expenses for <%=@client.name%></h3>
+
+
+<table  class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Project</th>
+      <th>Vendor </th>
+      <th>Description </th>
+      <th>Cost</th>
+      <th>Mileage </th>
+    </tr>
+  </thead>
+  <tbody class="project-index">
+    <% @client.expenses.each do |expense|%>
+      <tr>
+        <td> <%= expense.project.number %></td>
+        <td> <%= expense.project.name %></td>
+        <td> <%= expense.vendor %></td>
+        <td> <%= expense.description %></td>
+        <td> $<%= expense.amount || "N/A"%></td>
+        <td> <%= expense.mileage  || "N/A" %></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+<h4> Total: $ <%= @total %> </br></h4>
+
+
+<p> Created at: <%= DateTime.now %></p>

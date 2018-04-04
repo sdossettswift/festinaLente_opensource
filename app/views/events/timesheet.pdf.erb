@@ -1,0 +1,35 @@
+<body>
+  <h1> Hill Swift Architect, PLLC </h1>
+  <hr>
+  <h3> Timesheet for <%=@current_user.first_name%> <%=@current_user.last_name %></h3>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Client</th>
+        <th>Date </th>
+        <th>Description </th>
+        <th>Duration</th>
+        <th>Phase</th>
+      </tr>
+    </thead>
+    <tbody class="project-index">
+      <% @events.each do |event|%>
+        <tr>
+          <td> <%= event.project.number %></td>
+          <td> <%= event.project.client.name %></td>
+          <td> <%= event.start.strftime('%m/%d/%Y')%></td>
+          <td> <%= event.title %></td>
+          <td> <%= event.duration_hours %> hours</td>
+          <td> <%= event.phase%></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+  <h4> Total: <%= @duration%> Hours</br></h4>
+
+
+  <p> Created at: <%= DateTime.now %></p>
+</body>

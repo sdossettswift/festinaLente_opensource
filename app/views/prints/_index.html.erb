@@ -1,0 +1,30 @@
+<table  class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>No.</th>
+      <th>Client</th>
+      <th>Device </th>
+      <th>Color </th>
+      <th>Scan</th>
+      <th>Page Count</th>
+      <th>Edit </th>
+
+    </tr>
+  </thead>
+  <tbody class="prints-index">
+    <% @prints.each do |print|%>
+      <tr>
+        <td> <%= print.project.name %></td>
+        <td> <%= print.project.number %></td>
+        <td> <%= print.project.client.name %></td>
+        <td> <%= print.device %></td>
+        <td> <%= print.color %></td>
+        <td> <%= print.scan %></td>
+        <td> <%= print.page_count %></td>
+        <td><%= link_to "Edit", edit_print_path(print), remote: true, class: "btn btn-default" %></td>
+
+      </tr>
+    <%end%>
+  </tbody>
+</table>

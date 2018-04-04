@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-md-4">
+      <h1>Timesheets</h1>
+    </div>
+    <div class="col col-md-4">
+      <h1>Expense Reports</h1>
+
+      <table  class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Project</th>
+            <th>No.</th>
+            <th>Vendor </th>
+            <th>Description </th>
+            <th>Cost</th>
+            <th>Edit </th>
+
+          </tr>
+        </thead>
+        <tbody class="project-index">
+          <% @expenses.each do |expense|%>
+            <tr>
+              <td> <%= expense.project.name %></td>
+              <td> <%= expense.project.number %></td>
+              <td> <%= expense.vendor %></td>
+              <td> <%= expense.description %></td>
+              <td> $<%= expense.amount %></td>
+              <td><%= link_to "Edit", edit_expense_path(expense), remote: false, class: "btn btn-default" %></td>
+
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+      <%= link_to "Download Expense Report", expense_report_path(format: "pdf") %> |
+
+    </div>
+    <div class="col col-md-4">
+      <h1>Print Log</h1>
+      <table  class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Project</th>
+            <th>No.</th>
+            <th>Client</th>
+            <th>Device </th>
+            <th>Color </th>
+            <th>Scan</th>
+            <th>Page Count</th>
+            <th>Edit </th>
+
+          </tr>
+        </thead>
+        <tbody class="prints-index">
+          <% @prints.each do |print|%>
+            <tr>
+              <td> <%= print.project.name %></td>
+              <td> <%= print.project.number %></td>
+              <td> <%= print.project.client.name %></td>
+              <td> <%= print.device %></td>
+              <td> <%= print.color %></td>
+              <td> <%= print.scan %></td>
+              <td> <%= print.page_count %></td>
+              <td><%= link_to "Edit", edit_print_path(print), remote: false, class: "btn btn-default" %></td>
+
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+      <%= link_to "Add Print", new_print_path(@print), remote: true, class: "btn btn-primary" %>
+      <div id="print-modal", class="modal fade"></div>
+
+    </div>
+
+  </div>
+
+</div>

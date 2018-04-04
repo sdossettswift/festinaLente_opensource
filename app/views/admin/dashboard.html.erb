@@ -1,0 +1,68 @@
+
+<div class="row">
+  <div class="col col-md-4">
+    <h1>Clients</h1>
+    <%= link_to "Add Client", new_admin_client_path(@client), remote: true, class: "btn" %>
+    <div id="client-modal" class="modal fade"></div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render 'client_index' %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col col-md-4 ">
+    <h1>Projects</h1>
+    <%= link_to "Add Project", new_project_path(@project), remote: true, class: "btn" %>
+    <div class="new-project"></div>
+    <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render 'project_index' %>
+        </tbody>
+      </table>
+    <div id="project-modal", class="modal fade"></div>
+  </div>
+  <div class="col col-md-4 ">
+    <div class="employee">
+      <h1>Employees</h1>
+      <%= link_to "Add Employee", new_user_path(@employee), remote: true, class: "btn" %>
+      <div class="new-user"></div>
+      <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render 'user_index' %>
+          </tbody>
+        </table>
+      <div id="user-modal", class="modal fade"></div>
+    </div>
+    <div class="billables">
+      <h2>Timesheets</h2><hr>
+      <h2>Expenses </h2><hr>
+
+    </div>
+
+  </div>
+</div>
+
+
+</div>

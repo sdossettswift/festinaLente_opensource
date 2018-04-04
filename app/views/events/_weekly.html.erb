@@ -1,0 +1,8 @@
+<% @events.each do |event| %>
+  <tr>
+    <td><%= event.end.strftime('%m/%d/%Y') %></td>
+    <td><%= event.project_id %></td>
+    <td><%= event.duration/3600 %></td>
+    <td><%= event.description%></td>
+  </tr>
+<% end %>

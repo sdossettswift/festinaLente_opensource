@@ -1,0 +1,28 @@
+<table  class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>No.</th>
+      <th>Date </th>
+      <th>Amount </th>
+      <th>Description</th>
+      <th>Vendor</th>
+      <th>Edit </th>
+
+    </tr>
+  </thead>
+  <tbody class="prints-index">
+    <% @expenses.each do |expense|%>
+      <tr>
+        <td> <%= expense.project.name %></td>
+        <td> <%= expense.project.number %></td>
+        <td> <%= expense.date %></td>
+        <td> <%= expense.amount %></td>
+        <td> <%= expense.description %></td>
+        <td> <%= expense.vendor %></td>
+        <td><%= link_to "Edit", edit_expense_path(expense), remote: true, class: "btn btn-default" %></td>
+
+      </tr>
+    <%end%>
+  </tbody>
+</table>

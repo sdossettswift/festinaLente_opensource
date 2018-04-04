@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+- 2.3.1
+addons:
+  postgresql: '9.4'
+  before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+deploy:
+  provider: heroku
+  api_key:
+    secure: nhVGNnvO5tsfu3sy8B4625rDYELu0EcH4mJ4uyB47gnFErGMQJ9oD7OgZ0byWw5u1pBLH9VgOAGF4a5GsSLzlK8F5vn4sQABWbeswlOzLpZqo1DMD9/GtOMPOjEVrXe5AhzNYTgooGrRSNQ8TvurWJtXrGA/FGR6G6wxM9fW0S7NG7qi/VnPp6fgYanTrSRIW8iPMoygt5H1oQ64bFPb+yyrR8SKdHatTF9ErlJ9hl1nQXtF3mqqAG1ABXub1oxDdNpuXrwua6FbMXKDGqu8SI7Cxpm2m3bvXvHggj1+eIQjLOMnkIWo5PnFZNSnnEHq8bWuRO+R58m8840Wg8ZwNswmsr9EGi9KFooYECmQHknDp+XWFtluMMYF0OQ3RYSluCEumTbNOInpy+2PCvVqAdpTCD7oHYYKd0Ul3dMJcuGv6UQ/kQUa3Zo63dS9N3P7+r/vWj37I90ABQbNlXtfvqfDobGYGgLRE5/HcszL+WlLvmTQuD6OwV0n+bQUoa3cZR3Mh1TDI7tQaO6y02kMmMbE3erALtH3AFuMm6G6yOChsctBiqsG2I/LLAa+a5cdQDjUbJoB2E1pMU5SB9eLqME121jEMP/ucATN4T1+RL9+9mOhg4rFM6XhjUf16piw8gfqepU9rd1tzVmzubs6J/PZFSbnWP3oRLTjk+v8Gvw=
+  app: y
+  on:
+    repo: sdossettswift/festinaLente
