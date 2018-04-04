@@ -23,6 +23,7 @@ TravisCI deploys to Heroku. Testing is handled using Minitest and Capybara. This
 is the first project where I have explored RsÂ=pec.
 
 <hr>
+
 ### To Do
 * billing
 * time sheet submittal
@@ -52,9 +53,14 @@ is the first project where I have explored RsÂ=pec.
 
 ![Prints](screenshots/print_log.png)
 - Users can log prints and scans in this form. These can be billed back to clients.
+
 <hr>
+
 # Deployment
-Should you wish to deploy this app on your own, you are welcome to do so.
+Should you wish to deploy this app on your own, you are
+welcome to do so.
+
+
 ### Prerequisites
 - ruby 2.3.1p112
 - Rails 5
