@@ -1,19 +1,13 @@
 readme.md
 
 ## FESTINA LENTE
-Festina Lente is a time tracking and billing system tailored to the needs
-of a boutique architectural studio. Festina Lente is built on the premise that
-the tool should work for the user, not impose a workflow. "Festina lente" is the
-Swift family motto, meaning "Make haste, carefully." This adage speaks to the
-value of thoughtful, yet efficient work.
+Festina Lente is a time tracking and billing system tailored to the needs of a boutique architectural studio. Festina Lente is built on the premise that the tool should work for the user, not impose a workflow. "Festina lente" is the Swift family motto, meaning "Make haste, carefully." This adage speaks to the value of thoughtful, yet efficient work.
 
-There are two types of users: architects and administrators. The architects
-simply add time entries via familiar calendar interface. The app also captures
-client billing for prints, scans, and other reimbursable expenses.
+There are two types of users: architects and administrators. The architects simply add time entries via familiar calendar interface. The app also captures client billing for prints, scans, and other reimbursable expenses.
 
-Administrators can add clients, projects, billing contacts. The end product will
-enable admins to view reports, generate invoices, and track key performance
-indices.
+Administrators can add clients, projects, billing contacts. The end product will enable admins to view reports, generate invoices, and track key performance indices.
+
+<hr>
 
 ### Technology
 #### Front End
@@ -28,10 +22,13 @@ generate JSON objects.
 TravisCI deploys to Heroku. Testing is handled using Minitest and Capybara. This
 is the first project where I have explored RsÂ=pec.
 
+<hr>
 ### To Do
 * billing
 * time sheet submittal
 * invoicing
+
+<hr>
 
 ### Images
 ![Entity Relationship Diagram](screenshots/entity_relationship_diagram.png)
@@ -54,4 +51,39 @@ is the first project where I have explored RsÂ=pec.
 - TODO: Future implementation can provide ability to upload a receipt.  
 
 ![Prints](screenshots/print_log.png)
-- Users can log prints and scans in this form. These can be billed back to clients. 
+- Users can log prints and scans in this form. These can be billed back to clients.
+<hr>
+# Deployment
+Should you wish to deploy this app on your own, you are welcome to do so.
+### Prerequisites
+- ruby 2.3.1p112
+- Rails 5
+- PostgreSQL
+- Homebrew, TravisCI, Heroku (ideally, for this implementation at least!)
+- There might be some additional gems to install globally to handle graphics, etc. I'm thinking Graphviz, Travis, Heroku...
+  - `brew install graphviz`
+  - `gem install travis`
+  - `brew install heroku`
+
+### How To
+- clone repo
+- create database: `rails db:create`
+- migrate database: `rails db:migrate`
+- bonus points to create, migrate at once: `rails db:setup`
+- create a superuser via `rails console` / `rails c`
+  - note: b/c the user is using b_crypt, set both the password and password_confirmation.
+  - Also, set role as "Admin". From there, you'll be able to create additional users via the Admin Dashboard.
+- get server running `rails s`
+- create a client via Admin Dashboard
+- create a project via Admin Dashboard
+- create additional users via Admin Dashboard
+- customize options in model files:
+  - event phases
+  - event colors
+  - expense categories
+  - print formats, etc.
+  - user roles
+- Create a heroku instance `heroku create`
+- Configure TravisCI to deploy to Heroku
+  `travis setup heroku`
+    - update travis.yml file as needed

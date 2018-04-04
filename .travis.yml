@@ -13,3 +13,6 @@ deploy:
   app: pacific-brushlands-70144
   on:
     repo: sdossettswift/festinaLente_opensource
+ run:
+    - "rake db:migrate"
+    - "rake cleanup"
