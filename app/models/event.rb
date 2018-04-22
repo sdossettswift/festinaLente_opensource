@@ -10,6 +10,18 @@ class Event < ApplicationRecord
       'Construction Documents',
       'Construction Administration'].freeze
 
+  ACTION = [
+      'Meeting',
+      'Drawing',
+      'Site Visit',
+      'Project Management',
+      'Specifications',
+      'Research',
+      'Design',
+      'Revisions',
+      'Other'
+    ].freeze
+
   COLORS = {
           "Pre-Design"=>'rgba(213,127,112,0.6)',
           "Schematic Design"=> "rgba(220,185,103,0.6)",

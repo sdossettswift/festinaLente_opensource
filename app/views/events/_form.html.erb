@@ -1,21 +1,27 @@
 <%= simple_form_for @event, remote: true do |f| %>
-  <div class="form-inputs">
-    <div class = "form-group">
-       <%= f.input :title, label: "Description",  required: true%>
-    </div>
-     <div class="form-group">
-        <%= f.label :project, required: true %>
-         <%= f.collection_select :project_id, Project.all, :id, :name %>
-     </div>
-      <div class="form-group">
-        <%= f.label :phase %>
-        <%= f.collection_select :phase, Event::PHASE, :to_s, :to_s, required:true%>
-      </div>
-        <%= f.input :date_range, required: true, as: :hidden, input_html: { class: "form-control input-sm date-range-picker" } %>
-        <%= f.input_field :start, required: true, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden' %>
-        <%= f.input_field :end, required: true, as: :hidden, value: Date.today, class: 'form-control input-sm end_hidden' %>
-    </div>
 
+  <div class="form-inputs">
+    <div class="form-group">
+       <%= f.label :project, required: true %>
+        <%= f.collection_select :project_id, Project.all, :id, :name %>
+    </div>
+    <div class="form-group">
+      <%= f.label :phase, required: true %>
+      <%= f.collection_select :phase, Event::PHASE, :to_s, :to_s, required:true%>
+    </div>
+    <div class = "form-group">
+       <%= f.label :title, label: "Description",  required: true%>
+       <%= f.collection_select :title, Event::ACTION, :to_s, :to_s, required:true%>
+    </div>
+    <div class="form-group">
+      <%= f.input :notes %>
+    </div>
+    <div class="hidden">
+      <%= f.input :date_range, required: true, as: :hidden, input_html: { class: "form-control input-sm date-range-picker" } %>
+      <%= f.input_field :start, required: true, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden' %>
+      <%= f.input_field :end, required: true, as: :hidden, value: Date.today, class: 'form-control input-sm end_hidden' %>
+    </div>
+  </div>
     <div class="form-actions">
       <%= f.button :submit, class: 'btn btn-primary' %>
       <%= link_to 'Delete',
