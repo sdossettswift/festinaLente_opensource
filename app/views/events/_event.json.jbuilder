@@ -1,7 +1,7 @@
 date_format = event.all_day_event? ? '%Y-%m-%d' : '%Y-%m-%dT%H:%M:%S'
 
 json.id event.id
-json.title event.title
+json.title event.project.name
 json.start event.start.try(:strftime, date_format)||0
 json.end event.end.try(:strftime, date_format)||0
 json.color event.color unless event.color.blank?

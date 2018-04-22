@@ -6,6 +6,7 @@
           <li>Client: <%= @event.project.client.name%> </li>
           <li>Project: <%= @event.project.name%></li>
           <li>Description: <%= @event.title%></li>
+          <li>Notes: <%= @event.notes%></li>
           <li>Date: <%= @event.start.strftime('%m/%d/%Y')%></li>
           <li>Duration: <%= @event.duration_hours%> hours</li>
         </ul>

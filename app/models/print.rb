@@ -1,9 +1,9 @@
 class Print < ApplicationRecord
   belongs_to :project
   belongs_to :user
-  DEVICE = ['Xerox', 'KIPP', 'HP', 'Epson', 'Other'].freeze
+  DEVICE = ['Xerox', 'KIPP' ].freeze
   FORMAT = ['Letter', 'Legal', 'Ledger', 'Large Format'].freeze
-  MEDIA = ['Black + White', 'Color', 'Scan']
+  MEDIA = ['Black + White', 'Color', 'Scan', 'Plot'].freeze
 end
 
 

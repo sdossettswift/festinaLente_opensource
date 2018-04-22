@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
 
   def index
+      @projects = Project.active.sorted.to_a
   end
 
   def show
@@ -29,6 +30,11 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update_attributes(project_params)
+    if @project.save
+        flash[:notice]="Project Updated"
+    else
+        render 'edit'
+    end
   end
 
   def delete
