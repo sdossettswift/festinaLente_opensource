@@ -1,18 +1,7 @@
-language: ruby
-rvm:
-- 2.3.1
-addons:
-  postgresql: '9.4'
-  before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - cp config/database.yml.travis config/database.yml
 deploy:
   provider: heroku
   api_key:
-    secure: dcx9mIzg55yG6FJsF9vlL+NWS8rT39bdDpYYMgdVbRSIzjHTgrIos/qSHMfhoxX3o7WE/FjhouK71ngoHFl0eCQbzigpWYJiAAp6c6+F0/0P2DNS2mhgOpBeoo9IEJnUwG5R0jZLUGHoLfDZsugkdgpRA1GLx/e6Hhb72U8bMKZLug+DS0VelITRWdzWlrL0N9Xjmhw1R0frMT1BkutSuOeyWTKQUdeC0M4btB/grzZEO9RmIELo4PLVOYMOFcsdEePj3EgFHV3m2FoSHvqePmMUl4sml7q4ryywyMad4HfQW72Jm4CY4DtatoufB3mRMVSkXXXh7I3KBe3Bp8uc/6OK1zTQ2bBNu9ujJxh6J7pnnATMc4es525rjqmv+BPNVqW5AQg4/7WtDtClgtBHHSWIye6aoCi+Epc8eYDFFYNneIASqtSNF1SXl4b5esc42xI+J2AYWoeRajpLJf+6wlxwMMhLlbAIgw0Bhk9G8OjH5d+FghqagJv7YqEwCFdUpYeSXqFgjJjmNG/JU5VZ8Lt42eG3SJVGzzwZedVENPVCZ3yZuocr7vGZvK0o76WcDx8j7CKliDTBBE6m7XjncnNroXRRzZReu9X7/iq9FGLEMXPlO6jq8hQG4PLgAbkfl7RlsLEujY4EOtZnzklGWJARqUJvuLHsxjwtJILdRtk=
-  app: pacific-brushlands-70144
+    secure: ClNAkFJnf7Hg6Y1VtHlj9w/zcPhB7lYuuuYWogybKUP1ZxwC3MOdGr3IBhxdvh5zZrP/aA4fXAsn6nAWRw17G53Xmui9fwI9idBuOAaeWLJfB6bNGoWWKdPUPUfAaCHhkMeIaVIDLjZrPsKQ2MBaX8ASoo6GbP2ZLudcNsnt443ou9sYHt9HPIe2XPn+TI+10Mi1Du/AKGNHZ5gMFRfCQelb0dpoA6pY+cV2kjk0PWo12shuXGT2JMQVNYfinVwd6Jaq++ynKpMgWLd79J8LkgGNu7kNihaXdP1ZttKXNwxHy4i6a3EFWJCvCAbtG65VZQdGxV6cpI7gQ2LH8A/+jR7Bhx4kEVvoDe6sB2+3ZomrzubKnao8mZ71N2yEPIxOPWt73mmP51Jk5FnNjgluTEZz661tn0O7BhNztzWfsxNLGVHRiHhMPrZB4r3fwuAF1iPpeALovi3EYAMgb0Jp2+Wkmw3hVlpgmuhfXFNYg49WhLzev8oGfYf1GeteaM8lm9N0usPf+vsdM7EO9BeBgnWh9ZcnADJNh6/lSis7XgC148+abMVODO5qRjzrtn9MPgQQs1w1A1c9AUxXz08SsC0RVCcJp0frWs30tvzT4ii0c6MwTNZcueoB3iLlFgwOwg7OZkPbFahnFzYHcyEBZF0VA1Pih75Ryfvhod75RKc=
+  app: fl-opensource
   on:
     repo: sdossettswift/festinaLente_opensource
- run:
-    - "rake db:migrate"
-    - "rake cleanup"
