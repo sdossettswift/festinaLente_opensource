@@ -11,6 +11,7 @@ class User < ApplicationRecord
 	ROLE = [
 					'Admin',
 					'Architect',
+                                        'Apprentice',
 					'Office Manager'].freeze
 
 	scope :by_role, -> (role_name) { where(role: role_name) }
