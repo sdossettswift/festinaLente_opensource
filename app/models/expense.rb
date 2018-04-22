@@ -1,8 +1,12 @@
 class Expense < ApplicationRecord
 		CATEGORY = [
-					'Courier',
+					'Courier | Postage',
 					'Mileage',
 					'Tolls',
+					'Plotting | Printing',
+					'Travel',
+					'Supplies',
+					'Samples',
 					'Other'].freeze
 
 		belongs_to :project
