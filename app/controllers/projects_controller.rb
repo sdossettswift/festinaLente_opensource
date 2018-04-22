@@ -49,7 +49,7 @@ private
   end
 
   def set_projects
-    @projects = Project.all.to_a
+      @projects = Project.active.sorted.to_a
   end
 
 end

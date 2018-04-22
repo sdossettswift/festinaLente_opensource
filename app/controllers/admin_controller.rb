@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   def dashboard
-  	 @projects = Project.all.sorted
+  	 @projects = Project.active.sorted
   	 @clients = Client.all.sorted
   	 @users = User.all.sorted
      @events = Event.all.sorted

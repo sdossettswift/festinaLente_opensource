@@ -11,6 +11,10 @@
           <%= f.collection_select :client_id, Client.all, :id, :last_name %>
        </div>
        <%= f.input :number %>
+       <div class="form-group">
+            <%= f.label :status, required: true %>
+            <%= f.collection_select :status, Project::STATUS, :to_s, :to_s, :include_blank => false %>
+       </div>
        <%= f.input :description %>
        <%= f.input :status %>
        <%= f.input :square_footage %>

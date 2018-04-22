@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-     @projects = Project.all.to_a
+      @projects = Project.active.sorted.to_a
      @clients = Client.all.to_a
      @events = @current_user.events.unbilled.all
      @expenses = @current_user.expenses.not_nil
