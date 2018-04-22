@@ -1,5 +1,6 @@
 readme.md
 
+![badge](https://travis-ci.org/sdossettswift/festinaLente_opensource.svg?branch=master)
 ## FESTINA LENTE
 Festina Lente is a time tracking and billing system tailored to the needs of a boutique architectural studio. Festina Lente is built on the premise that the tool should work for the user, not impose a workflow. "Festina lente" is the Swift family motto, meaning "Make haste, carefully." This adage speaks to the value of thoughtful, yet efficient work.
 
