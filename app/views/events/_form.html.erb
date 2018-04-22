@@ -11,7 +11,7 @@
         <%= f.label :phase %>
         <%= f.collection_select :phase, Event::PHASE, :to_s, :to_s, required:true%>
       </div>
-        <%= f.input :date_range, required: true, input_html: { class: "form-control input-sm date-range-picker" } %>
+        <%= f.input :date_range, required: true, as: :hidden, input_html: { class: "form-control input-sm date-range-picker" } %>
         <%= f.input_field :start, required: true, as: :hidden, value: Date.today, class: 'form-control input-sm start_hidden' %>
         <%= f.input_field :end, required: true, as: :hidden, value: Date.today, class: 'form-control input-sm end_hidden' %>
     </div>
